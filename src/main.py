@@ -7,6 +7,8 @@ from View.GachaView import *
 from View.WaitView import *
 from View.PlayView import *
 
+from Player.Player import *
+
 SCR_RECT = Rect(0, 0, 1200, 800)
 
 if __name__ == "__main__":
@@ -22,7 +24,9 @@ if __name__ == "__main__":
         elif(event == GameState.Wait):
             view = WaitView(SCR_RECT)
         elif(event == GameState.Play):
-            view = PlayView(SCR_RECT)
+            # TODO:ガチャで出たキャラをPlayViewに渡すようにする
+            player = Player()
+            view = PlayView(SCR_RECT, player)
         elif(event == GameState.Quit):
             pygame.quit()
             sys.exit()
