@@ -5,6 +5,7 @@ import sys
 from View.TitleView import *
 from View.GachaView import *
 from View.WaitView import *
+from View.PlayView import *
 
 SCR_RECT = Rect(0, 0, 1200, 800)
 
@@ -20,6 +21,8 @@ if __name__ == "__main__":
             view = GachaView(SCR_RECT)
         elif(event == GameState.Wait):
             view = WaitView(SCR_RECT)
+        elif(event == GameState.Play):
+            view = PlayView(SCR_RECT)
         elif(event == GameState.Quit):
             pygame.quit()
             sys.exit()
