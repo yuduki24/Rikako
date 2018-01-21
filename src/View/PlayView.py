@@ -8,13 +8,13 @@ class PlayView(View):
         self.all = pygame.sprite.RenderUpdates()
         self.player.containers = self.all
         self.player.initialise(scr_rect)
-        
-        self.screen.fill((20, 20, 20))
-
     def draw(self):
+        self.screen.fill((20, 20, 20))
         self.all.update()
         self.all.draw(self.screen)
     def key_handler(self):
+        pressed_keys = pygame.key.get_pressed()
+        self.player.move(pressed_keys)
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
