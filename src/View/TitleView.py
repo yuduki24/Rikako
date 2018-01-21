@@ -16,10 +16,6 @@ class TitleView(View):
         self.screen.blit(titleText, (self.scr_rect.width//2 - titleText.get_width()//2, self.scr_rect.height//4))
         self.updateButtonView()
 
-    def main(self):
-        super().main()
-        return self.returnStatus
-
     def draw(self):
         self.updateButtonView()
     
@@ -50,7 +46,6 @@ class TitleView(View):
             if event.type == KEYDOWN and event.key == K_DOWN:
                 self.chooing_buton = QUIT_BUTTON
             if event.type == KEYDOWN and event.key == K_RETURN:
-                print("aa")
                 if self.chooing_buton == START_BUTTON:
                     self.returnStatus = GameState.Gacha
                 elif self.chooing_buton == QUIT_BUTTON:

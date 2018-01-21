@@ -4,6 +4,7 @@ import sys
 
 from View.TitleView import *
 from View.GachaView import *
+from View.WaitView import *
 
 SCR_RECT = Rect(0, 0, 1200, 800)
 
@@ -12,11 +13,14 @@ if __name__ == "__main__":
     view = TitleView(SCR_RECT)
     while True:
         clock.tick(60)
-        if(view.main() == GameState.Pass):
+        event = view.main()
+        if(event == GameState.Pass):
             pass
-        elif(view.main() == GameState.Gacha):
+        elif(event == GameState.Gacha):
             view = GachaView(SCR_RECT)
-        elif(view.main() == GameState.Quit):
+        elif(event == GameState.Wait):
+            view = WaitView(SCR_RECT)
+        elif(event == GameState.Quit):
             pygame.quit()
             sys.exit()
             break

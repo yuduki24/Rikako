@@ -2,7 +2,7 @@ import pygame
 from pygame.locals import *
 import sys
 class GameState:
-    Title, Gacha, Wait, Game, Clear, Finish, Quit, Pass = range(1, 9)
+    Title, Gacha, Wait, Play, Clear, Finish, Quit, Pass = range(1, 9)
 
 class View():
     def __init__(self, scr_rect):
