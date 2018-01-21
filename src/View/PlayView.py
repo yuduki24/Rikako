@@ -1,4 +1,5 @@
 from View.View import *
+from GameManager import *
 
 class PlayView(View):
     def __init__(self, scr_rect, player):
@@ -8,6 +9,13 @@ class PlayView(View):
         self.all = pygame.sprite.RenderUpdates()
         self.player.containers = self.all
         self.player.initialise(scr_rect)
+        self.gameManager = GameManager(self.all)
+    def main(self):
+        self.gameManager.update()
+        self.draw()
+        pygame.display.update()
+        self.key_handler()
+        return self.returnStatus
     def draw(self):
         self.screen.fill((20, 20, 20))
         self.all.update()
