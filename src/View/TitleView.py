@@ -10,13 +10,16 @@ class TitleView(View):
         super().__init__(scr_rect)
         self.screen.fill((50, 50, 50))
         self.chooing_buton = START_BUTTON
-
         # ゲームタイトル.
         titleFont = pygame.font.SysFont(None, 100)
         titleText = titleFont.render("my shooooooooting", True, (255,0,0))
         self.screen.blit(titleText, (self.scr_rect.width//2 - titleText.get_width()//2, self.scr_rect.height//4))
         self.updateButtonView()
-        
+
+    def main(self):
+        super().main()
+        return self.returnStatus
+
     def draw(self):
         self.updateButtonView()
     
@@ -46,6 +49,14 @@ class TitleView(View):
                 self.chooing_buton = START_BUTTON
             if event.type == KEYDOWN and event.key == K_DOWN:
                 self.chooing_buton = QUIT_BUTTON
+            if event.type == KEYDOWN and event.key == K_RETURN:
+                print("aa")
+                if self.chooing_buton == START_BUTTON:
+                    self.returnStatus = GameState.Gacha
+                elif self.chooing_buton == QUIT_BUTTON:
+                    self.returnStatus = GameState.Quit
+                
+
 
 
         
