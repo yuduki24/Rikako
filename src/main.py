@@ -12,11 +12,12 @@ if __name__ == "__main__":
     view = TitleView(SCR_RECT)
     while True:
         clock.tick(60)
-        if(view.main() == GameState.Pass):
+        event = view.main()
+        if(event == GameState.Pass):
             pass
-        elif(view.main() == GameState.Gacha):
+        elif(event == GameState.Gacha):
             view = GachaView(SCR_RECT)
-        elif(view.main() == GameState.Quit):
+        elif(event == GameState.Quit):
             pygame.quit()
             sys.exit()
             break
