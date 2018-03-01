@@ -2,12 +2,12 @@ import pygame
 from pygame.locals import *
 import sys
 
-from View.TitleView import *
-from View.GachaView import *
-from View.WaitView import *
-from View.PlayView import *
+from View.titleView import *
+from View.gachaView import *
+from View.waitView import *
+from View.playView import *
 
-from Player.Player import *
+from Player.player import *
 
 SCR_RECT = Rect(0, 0, 1200, 800)
 

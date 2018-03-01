@@ -1,5 +1,5 @@
-from View.View import *
-from GameManager import *
+from View.view import *
+from gameManager import *
 
 class PlayView(View):
     def __init__(self, scr_rect, player):

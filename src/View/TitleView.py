@@ -1,18 +1,18 @@
-from View.View import *
+from View.view import *
+from Util.textMaker import *
+
 BUTTON_SIZE_W, BUTTON_SIZE_H = 200, 50
 START_BUTTON, QUIT_BUTTON = 0, 1
-RED = (255, 0, 0)
-WATER_BLUE = (0, 255, 255)
-YELLOW = (255, 255, 0)
 
 class TitleView(View):
     def __init__(self, scr_rect):
         super().__init__(scr_rect)
-        self.screen.fill((50, 50, 50))
+        self.screen.fill(GRAY)
         self.chooing_buton = START_BUTTON
         # ゲームタイトル.
-        titleFont = pygame.font.SysFont(None, 100)
-        titleText = titleFont.render("my shooooooooting", True, (255,0,0))
+        #titleFont = pygame.font.SysFont(None, 100)
+        #titleText = titleFont.render("my shooooooooting", True, (255,0,0))
+        titleText = getText("my shooooooooting", 100, RED)
         self.screen.blit(titleText, (self.scr_rect.width//2 - titleText.get_width()//2, self.scr_rect.height//4))
         self.updateButtonView()
 
@@ -50,8 +50,3 @@ class TitleView(View):
                     self.returnStatus = GameState.Gacha
                 elif self.chooing_buton == QUIT_BUTTON:
                     self.returnStatus = GameState.Quit
-                
-
-
-
-        

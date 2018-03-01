@@ -1,4 +1,4 @@
-from View.View import *
+from View.view import *
 
 BEFORE_GACHA, AFTER_GACHA = 0, 1
 

@@ -1,4 +1,4 @@
-from View.View import *
+from View.view import *
 
 class WaitView(View):
     def __init__(self, scr_rect):
