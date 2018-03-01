@@ -1,6 +1,9 @@
 import pygame
 from pygame.locals import *
+
 import sys
+from Util.textMaker import *
+
 class GameState:
     Title, Gacha, Wait, Play, Clear, Finish, Quit, Pass = range(1, 9)
 
