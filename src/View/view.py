@@ -1,7 +1,6 @@
 import pygame
 from pygame.locals import *
 
-import sys
 from Util.textMaker import *
 
 class GameState:
