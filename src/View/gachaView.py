@@ -3,8 +3,8 @@ from View.view import *
 BEFORE_GACHA, AFTER_GACHA = 0, 1
 
 class GachaView(View):
-    def __init__(self, scr_rect):
-        super().__init__(scr_rect)
+    def __init__(self):
+        super().__init__()
         self.screen.fill(WHITE)
         self.gachaState = BEFORE_GACHA
     def draw(self):

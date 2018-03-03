@@ -7,15 +7,10 @@ class GameState:
     Title, Gacha, Wait, Play, Clear, Finish, Quit, Pass = range(1, 9)
 
 class View():
-    def __init__(self, scr_rect):
-        pygame.init()
-        self.screen = pygame.display.set_mode(scr_rect.size)
-        self.scr_rect = scr_rect
+    def __init__(self):
         self.returnStatus = GameState.Pass
-        pygame.display.set_caption(u"uwaaaaaa")
     def main(self):
         self.draw()
-        pygame.display.update()
         self.key_handler()
         return self.returnStatus
     def key_handler(self):

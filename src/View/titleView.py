@@ -4,8 +4,8 @@ BUTTON_SIZE_W, BUTTON_SIZE_H = 200, 50
 START_BUTTON, QUIT_BUTTON = 0, 1
 
 class TitleView(View):
-    def __init__(self, scr_rect):
-        super().__init__(scr_rect)
+    def __init__(self):
+        super().__init__()
         self.screen.fill(GRAY)
         self.chooing_buton = START_BUTTON
         # ゲームタイトル.

@@ -2,11 +2,11 @@ from Stage.stage1 import *
 
 class GameManager():
     stageNumber = 1
-    def __init__(self, render):
-        self.createStage(render)
+    def __init__(self):
+        self.createStage()
     def update(self):
         pass
-    def createStage(self, render):
+    def createStage(self):
         if self.stageNumber == 1:
             self.stage = Stage1()
-        self.stage.deployEnemy(render)
+        self.stage.deployEnemy()

@@ -1,8 +1,8 @@
 from View.view import *
 
 class WaitView(View):
-    def __init__(self, scr_rect):
-        super().__init__(scr_rect)
+    def __init__(self):
+        super().__init__()
     def draw(self):
         # TODO:ガチャで出たキャラの説明など
         self.screen.fill(BLUE)
