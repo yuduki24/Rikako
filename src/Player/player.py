@@ -15,7 +15,7 @@ class Player(pygame.sprite.Sprite):
         self.scr_rect = scr_rect
         self.rect = self.image.get_rect()
         self.rect.center = scr_rect.center
-        self.rect.bottom = scr_rect.bottom
+        self.rect.bottom = scr_rect.bottom - 100
     def move(self, pressed_keys):
         direction_x = pressed_keys[K_RIGHT] - pressed_keys[K_LEFT]
         direction_y = pressed_keys[K_DOWN] - pressed_keys[K_UP]
