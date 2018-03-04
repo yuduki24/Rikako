@@ -5,6 +5,7 @@ import sys
 from Enemy.enemy import *
 
 from Player.player import *
+from Player.player1 import *
 
 from View.titleView import *
 from View.gachaView import *
@@ -24,7 +25,7 @@ class GaSshoo():
         pygame.display.set_caption(u"uwaaaaaa")
         View.scr_rect = SCR_RECT
         View.screen = self.screen
-        
+        Player.pos = (SCR_RECT.width//2, SCR_RECT.height*3//4)
         # 画像.
         image = loadImage("enemy.png")
         Enemy.images = [image, pygame.transform.flip(image, 1, 0)]
@@ -32,7 +33,10 @@ class GaSshoo():
         Player.image = image
         image = loadImage("shot.png")
         Shot.image = image
-        
+        image = loadImage("player1.png")
+        Player1.image = image
+        image = loadImage("shot1.png")
+        Shot1.image = image        
         # 音楽.
         
         all = pygame.sprite.RenderUpdates()    
@@ -66,7 +70,7 @@ class GaSshoo():
                 view = WaitView()
             elif(event == GameState.Play):
                 # TODO:ガチャで出たキャラをPlayViewに渡すようにする
-                player = Player((SCR_RECT.width//2, SCR_RECT.height*3//4))
+                player = Player1()
                 view = PlayView(player)
             elif(event == GameState.Quit):
                 pygame.quit()

@@ -5,14 +5,12 @@ from Util.loader import *
 
 class Player(pygame.sprite.Sprite):
     speed = 2
-    hp = 2
-    power = 1
     reload_time = 20
-    def __init__(self, pos):
+    def __init__(self):
         pygame.sprite.Sprite.__init__(self, self.containers)
         # self.rect = self.image.get_rect(midbottom=pos)
         self.rect = self.image.get_rect()
-        self.rect.center = pos
+        self.rect.center = self.pos
         self.reload_timer = 0
     def execEvent(self, pressed_keys):
         self.move(pressed_keys)
