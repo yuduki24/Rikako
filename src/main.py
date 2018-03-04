@@ -13,6 +13,8 @@ from View.playView import *
 
 from Util.loader import *
 
+from gameManager import *
+
 SCR_RECT = Rect(0, 0, 1200, 800)
 
 class GaSshoo():
@@ -34,13 +36,16 @@ class GaSshoo():
         # 音楽.
         
         all = pygame.sprite.RenderUpdates()    
-        enemy = pygame.sprite.Group()
+        enemys = pygame.sprite.Group()
         shots = pygame.sprite.Group()
         bombs = pygame.sprite.Group()
         lastenemy = pygame.sprite.GroupSingle()
         
+        GameManager.enemyGroup = enemys
+        GameManager.shotGroup = shots
+        
         Player.containers = all
-        Enemy.containers = enemy, all, lastenemy
+        Enemy.containers = enemys, all, lastenemy
         Shot.containers = shots, all
         # Bomb.containers = bombs, all
         # Explosion.containers = all
