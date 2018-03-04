@@ -16,7 +16,7 @@ from Util.loader import *
 
 from gameManager import *
 
-SCR_RECT = Rect(0, 0, 1200, 800)
+SCR_RECT = Rect(0, 0, 800, 600)
 
 class GaSshoo():
     def __init__(self):
@@ -25,8 +25,17 @@ class GaSshoo():
         pygame.display.set_caption(u"uwaaaaaa")
         View.scr_rect = SCR_RECT
         View.screen = self.screen
-        Player.pos = (SCR_RECT.width//2, SCR_RECT.height*3//4)
+        Player.pos = (SCR_RECT.width//2, SCR_RECT.height-50)
         # 画像.
+        image = loadImage("normalGacha1.png")
+        GachaView.normal1 = image
+        image = loadImage("normalGacha2.png")
+        GachaView.normal2 = image
+        image = loadImage("ultraGacha1.png")
+        GachaView.ultra1 = image
+        image = loadImage("ultraGacha2.png")
+        GachaView.ultra2 = image
+        
         image = loadImage("enemy.png")
         Enemy.images = [image, pygame.transform.flip(image, 1, 0)]
         image = loadImage("player.png")

@@ -26,20 +26,20 @@ def loadImages(*files):
         imgs.append(load_image(file))
     return imgs
 
-def loadSound(filename):
+def loadSound(file):
     file = os.path.join(parent_dir, 'sound', file)
-    return pygame.mixer.Sound(filename)
+    return pygame.mixer.Sound(file)
 
-def playSound(filename, repeat=None):
+def playSound(file, repeat=None):
     file = os.path.join(parent_dir, 'sound', file)
-    pygame.mixer.music.load(filename)
+    pygame.mixer.music.load(file)
     if repeat is not None:
         if repeat is -1:
             pygame.mixer.music.play(-1)
 
-def loadFont(fontname, size):
+def loadFont(file, size):
     file = os.path.join(parent_dir, 'font', file)
-    return pygame.font.Font(fontname, size)
+    return pygame.font.Font(file, size)
 
 # def split_image(image, n):
 #     """横に長いイメージを同じ大きさのn枚のイメージに分割

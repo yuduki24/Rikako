@@ -1,6 +1,8 @@
 import pygame
 from pygame.locals import *
 
+from Util.loader import *
+
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
@@ -11,7 +13,7 @@ YELLOW = (255, 255, 0)
 GRAY = (50, 50, 50)
 TITLE_GRAY = (225, 150, 75)
 
-def getText(string, size, textColor, font=None, backgroundColor=None):
-    sytemFont = pygame.font.SysFont(font, size)
+def getText(string, size, textColor, backgroundColor=None):
+    sytemFont = loadFont('ipag.ttf', size)
     text = sytemFont.render(string, True, textColor, backgroundColor)
     return text
