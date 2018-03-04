@@ -4,7 +4,7 @@ from pygame.locals import *
 from Util.textMaker import *
 
 class GameState:
-    Title, Gacha, Wait, Play, Clear, Finish, Quit, Pass = range(1, 9)
+    Title, View, Gacha, Wait, Play, Clear, Finish, Quit, Pass = range(1, 10)
 
 class View():
     def __init__(self):
@@ -20,4 +20,4 @@ class View():
                 pygame.quit()
                 sys.exit()
     def draw(self):
-        self.screen.fill((225, 150, 75))
+        pass

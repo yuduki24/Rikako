@@ -1,5 +1,7 @@
 from View.view import *
 
+import random
+
 BEFORE_GACHA, AFTER_GACHA = 0, 1
 NORMAL_GACHA, ULTRA_GACHA = 0, 1
 
@@ -38,4 +40,12 @@ class GachaView(View):
                 if self.gachaState == BEFORE_GACHA:
                     self.gachaState = AFTER_GACHA
                 elif self.gachaState == AFTER_GACHA:
+                    self.playerID = self.gacha()
+                    print(self.playerID)
                     self.returnStatus = GameState.Wait
+    def gacha(self):
+        # ガチャの種類によって変える.
+        num = 0
+        if random.randint(1,100) > 50:
+            num = 1
+        return num

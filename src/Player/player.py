@@ -6,6 +6,9 @@ from Util.loader import *
 class Player(pygame.sprite.Sprite):
     speed = 2
     reload_time = 20
+    NAME = "初号機"
+    RANK = "ノーマル"
+    BRIEF = ["適当にペイントで作成した初号機", "何の変哲もない。", "最近太ってしまったせいか、動くのがとても遅い"]
     def __init__(self):
         pygame.sprite.Sprite.__init__(self, self.containers)
         # self.rect = self.image.get_rect(midbottom=pos)

@@ -5,6 +5,8 @@ class GameManager():
     def __init__(self):
         self.createStage()
     def update(self):
+        self.all.update()
+        self.all.draw(self.screen)
         self.collisionDetection()
     def createStage(self):
         if self.stageNumber == 1:

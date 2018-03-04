@@ -21,10 +21,10 @@ SCR_RECT = Rect(0, 0, 800, 600)
 class GaSshoo():
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode(SCR_RECT.size)
+        screen = pygame.display.set_mode(SCR_RECT.size)
         pygame.display.set_caption(u"uwaaaaaa")
         View.scr_rect = SCR_RECT
-        View.screen = self.screen
+        View.screen = screen
         Player.pos = (SCR_RECT.width//2, SCR_RECT.height-50)
         # 画像.
         image = loadImage("normalGacha1.png")
@@ -36,13 +36,13 @@ class GaSshoo():
         image = loadImage("ultraGacha2.png")
         GachaView.ultra2 = image
         
-        image = loadImage("enemy.png")
+        image = loadImage("enemy.png", -1)
         Enemy.images = [image, pygame.transform.flip(image, 1, 0)]
-        image = loadImage("player.png")
+        image = loadImage("player.png", -1)
         Player.image = image
         image = loadImage("shot.png")
         Shot.image = image
-        image = loadImage("player1.png")
+        image = loadImage("player1.png", -1)
         Player1.image = image
         image = loadImage("shot1.png")
         Shot1.image = image        
@@ -56,6 +56,8 @@ class GaSshoo():
         
         GameManager.enemyGroup = enemys
         GameManager.shotGroup = shots
+        GameManager.screen = screen
+        GameManager.all = all
         
         Player.containers = all
         Enemy.containers = enemys, all, lastenemy
@@ -68,23 +70,26 @@ class GaSshoo():
         while True:
             clock.tick(60)
             event = view.main()
-            all.update()
-            all.draw(self.screen)
             pygame.display.update()
-            if(event == GameState.Pass):
-                pass
+            if(event == GameState.View):
+                view = TitleView()
             elif(event == GameState.Gacha):
                 view = GachaView()
             elif(event == GameState.Wait):
-                view = WaitView()
+                self.createPlayer(view.playerID)
+                view = WaitView(self.player)
             elif(event == GameState.Play):
-                # TODO:ガチャで出たキャラをPlayViewに渡すようにする
-                player = Player1()
-                view = PlayView(player)
+                view = PlayView(self.player)
             elif(event == GameState.Quit):
                 pygame.quit()
                 sys.exit()
                 break
-
+            elif(event == GameState.Pass):
+                pass
+    def createPlayer(self, id):
+        if id == 0:
+            self.player = Player()
+        elif id == 1:
+            self.player = Player1()
 if __name__ == "__main__":
     GaSshoo()

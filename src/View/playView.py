@@ -23,6 +23,8 @@ class PlayView(View):
         pressed_keys = pygame.key.get_pressed()
         self.player.execEvent(pressed_keys)
         for event in pygame.event.get():
+            if event.type == KEYDOWN and event.key == K_RETURN:
+                self.returnStatus = GameState.View
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
