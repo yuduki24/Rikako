@@ -21,9 +21,7 @@ class PlayView(View):
         pass
     def key_handler(self):
         pressed_keys = pygame.key.get_pressed()
-        self.player.move(pressed_keys)
-        if pressed_keys[K_SPACE]:
-            Shot(self.player.getPossition())
+        self.player.execEvent(pressed_keys)
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
