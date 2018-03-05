@@ -60,12 +60,13 @@ class PlayView(View):
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == KEYDOWN and event.key == K_UP:
-                self.chooing_buton = NEXT_BUTTON
-            if event.type == KEYDOWN and event.key == K_DOWN:
-                self.chooing_buton = END_BUTTON
-            if event.type == KEYDOWN and event.key == K_RETURN:
-                if self.chooing_buton == NEXT_BUTTON:
-                    self.returnStatus = GameState.Title
-                elif self.chooing_buton == END_BUTTON:
-                    self.returnStatus = GameState.Title
+            if self.gameState == GAMECLEAR:
+                if event.type == KEYDOWN and event.key == K_UP:
+                    self.chooing_buton = NEXT_BUTTON
+                if event.type == KEYDOWN and event.key == K_DOWN:
+                    self.chooing_buton = END_BUTTON
+                if event.type == KEYDOWN and event.key == K_RETURN:
+                    if self.chooing_buton == NEXT_BUTTON:
+                        self.returnStatus = GameState.Title
+                    elif self.chooing_buton == END_BUTTON:
+                        self.returnStatus = GameState.Title

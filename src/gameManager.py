@@ -17,7 +17,7 @@ class GameManager():
         return self.state
     def createStage(self):
         if self.stageNumber == 1:
-            self.stage = Stage()
+            self.stage = Stage1()
     def collisionDetection(self):
         enemy_collided = pygame.sprite.groupcollide(self.enemyGroup, self.shotGroup, True, True)
         for enemy in enemy_collided.keys():
