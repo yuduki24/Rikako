@@ -58,9 +58,10 @@ class GaSshoo():
         beams = pygame.sprite.Group()
         lastenemy = pygame.sprite.GroupSingle()
         
+        GameManager.screen = screen
         GameManager.enemyGroup = enemys
         GameManager.shotGroup = shots
-        GameManager.screen = screen
+        GameManager.beams = beams
         GameManager.all = all
         
         Player.containers = all

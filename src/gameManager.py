@@ -2,7 +2,8 @@ from Stage.stage1 import *
 
 class GameManager():
     stageNumber = 1
-    def __init__(self):
+    def __init__(self, player):
+        self.player = player
         self.createStage()
     def update(self):
         self.all.update()
@@ -18,4 +19,6 @@ class GameManager():
             # 爆発音.
             # 爆発エフェクトself.
             pass
-        
+        beam_collided = pygame.sprite.spritecollide(self.player, self.beams, True)
+        if beam_collided:  # プレイヤーと衝突したビームがあれば
+            self.player.kill()

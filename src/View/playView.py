@@ -8,7 +8,7 @@ class PlayView(View):
         super().__init__()
         self.screen.fill(BLACK)
         self.player = player
-        self.gameManager = GameManager()
+        self.gameManager = GameManager(self.player)
     def main(self):
         # これをやるといい感じにできる.
         # self.all.clear(self.screen, Surface)
