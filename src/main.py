@@ -62,7 +62,7 @@ class GaSshoo():
         GameManager.screen = screen
         GameManager.enemyGroup = enemys
         GameManager.shotGroup = shots
-        GameManager.beams = beams
+        GameManager.beamGroup = beams
         GameManager.all = all
         
         Player.containers = all
@@ -77,7 +77,7 @@ class GaSshoo():
             clock.tick(60)
             event = view.main()
             pygame.display.update()
-            if(event == GameState.View):
+            if(event == GameState.Title):
                 view = TitleView()
             elif(event == GameState.Gacha):
                 view = GachaView()

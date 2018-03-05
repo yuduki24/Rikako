@@ -4,7 +4,7 @@ from pygame.locals import *
 from Util.textMaker import *
 
 class GameState:
-    Title, View, Gacha, Wait, Play, Clear, Finish, Quit, Pass = range(1, 10)
+    Title, Gacha, Wait, Play, Clear, Finish, Quit, Pass = range(1, 9)
 
 class View():
     def __init__(self):
