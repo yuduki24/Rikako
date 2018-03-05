@@ -11,6 +11,7 @@ from View.titleView import *
 from View.gachaView import *
 from View.waitView import *
 from View.playView import *
+from View.gameoverView import *
 
 from Util.loader import *
 
@@ -82,20 +83,16 @@ class GaSshoo():
             elif(event == GameState.Gacha):
                 view = GachaView()
             elif(event == GameState.Wait):
-                self.createPlayer(view.playerID)
-                view = WaitView(self.player)
+                view = WaitView(view.player)
             elif(event == GameState.Play):
-                view = PlayView(self.player)
+                view = PlayView(view.player)
+            elif(event == GameState.Gameover):
+                view = GameoverView(view.player)
             elif(event == GameState.Quit):
                 pygame.quit()
                 sys.exit()
                 break
             elif(event == GameState.Pass):
                 pass
-    def createPlayer(self, id):
-        if id == 0:
-            self.player = Player()
-        elif id == 1:
-            self.player = Player1()
 if __name__ == "__main__":
     GaSshoo()

@@ -24,7 +24,7 @@ class PlayView(View):
         self.gameState = self.gameManager.update()
         if self.gameState == GAMEOVER:
             self.gameManager.reset()
-            self.returnStatus = Title
+            self.returnStatus = GameState.Gameover
         elif self.gameState == GAMECLEAR:
             self.gameManager.reset()
         return self.returnStatus

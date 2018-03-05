@@ -5,6 +5,7 @@ class WaitView(View):
         super().__init__()
         self.screen.fill(GRAY)
 
+        self.player = player
         image = pygame.transform.scale(player.image, (160, 160))
         self.screen.blit(image, (50, 100))
 

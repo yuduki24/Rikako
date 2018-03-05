@@ -34,6 +34,8 @@ class Player(pygame.sprite.Sprite):
         # self.rect.clamp_ip(self.scr_rect)
     def shot(self):
         Shot((self.rect.centerx, self.rect.top))
+    def reset(self):
+        self.rect.center = self.pos
 
 
 class Shot(pygame.sprite.Sprite):

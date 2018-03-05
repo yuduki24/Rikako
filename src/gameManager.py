@@ -26,12 +26,18 @@ class GameManager():
             pass
         beam_collided = pygame.sprite.spritecollide(self.player, self.beamGroup, True)
         if beam_collided:  # プレイヤーと衝突したビームがあれば
-            self.player.kill()
+            #self.player.kill()
             self.state = GAMEOVER
     def reset(self):
-        self.player.kill()
-        self.enemyGroup.empty()
-        self.shotGroup.empty()
-        self.beamGroup.empty()
+        self.player.reset()
+        for sprite in self.enemyGroup.sprites():
+            sprite.kill()
+        for sprite in self.shotGroup.sprites():
+            sprite.kill()
+        for sprite in self.beamGroup.sprites():
+            sprite.kill() 
+        # self.enemyGroup.empty()
+        # self.shotGroup.empty()
+        # self.beamGroup.empty()
         self.all.update()
         pass
