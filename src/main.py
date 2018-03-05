@@ -26,6 +26,7 @@ class GaSshoo():
         View.scr_rect = SCR_RECT
         View.screen = screen
         Player.pos = (SCR_RECT.width//2, SCR_RECT.height-50)
+        Player.scr_rect = SCR_RECT
         Beam.scr_rect = SCR_RECT
         
         # 画像.
