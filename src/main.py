@@ -26,6 +26,8 @@ class GaSshoo():
         View.scr_rect = SCR_RECT
         View.screen = screen
         Player.pos = (SCR_RECT.width//2, SCR_RECT.height-50)
+        Beam.scr_rect = SCR_RECT
+        
         # 画像.
         image = loadImage("normalGacha1.png")
         GachaView.normal1 = image
@@ -45,13 +47,15 @@ class GaSshoo():
         image = loadImage("player1.png", -1)
         Player1.image = image
         image = loadImage("shot1.png")
-        Shot1.image = image        
+        Shot1.image = image
+        image = loadImage("beam.png")
+        Beam.image = image
         # 音楽.
         
         all = pygame.sprite.RenderUpdates()    
         enemys = pygame.sprite.Group()
         shots = pygame.sprite.Group()
-        bombs = pygame.sprite.Group()
+        beams = pygame.sprite.Group()
         lastenemy = pygame.sprite.GroupSingle()
         
         GameManager.enemyGroup = enemys
@@ -62,7 +66,7 @@ class GaSshoo():
         Player.containers = all
         Enemy.containers = enemys, all, lastenemy
         Shot.containers = shots, all
-        # Bomb.containers = bombs, all
+        Beam.containers = beams, all
         # Explosion.containers = all
     
         clock = pygame.time.Clock()
