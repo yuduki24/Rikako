@@ -3,6 +3,8 @@ from gameManager import *
 
 from Player.player import *
 
+import time
+
 BUTTON_SIZE_W, BUTTON_SIZE_H = 200, 50
 NEXT_BUTTON, END_BUTTON = 0, 1
 
@@ -14,6 +16,7 @@ class PlayView(View):
         self.player = player
         self.gameManager = GameManager(self.player)
         self.gameState = PLAY
+        self.stime = time.time()
     def main(self):
         # これをやるといい感じにできる.
         # self.all.clear(self.screen, Surface)
@@ -32,6 +35,10 @@ class PlayView(View):
         self.screen.fill(BLACK)
         if self.gameState == PLAY:
             # 残機とか体力とかスコアとか.
+            self.result = time.time() - self.stime
+            result = int(self.result * 10)
+            timeText = getText(str(result/10), 20, WHITE)
+            self.screen.blit(timeText, (self.scr_rect.width - timeText.get_width() - 5, self.scr_rect.height - timeText.get_height() - 5))
             pass
         elif self.gameState == GAMECLEAR:
             titleText = getText("CLEAR", 75, YELLOW)
