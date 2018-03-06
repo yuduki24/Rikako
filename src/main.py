@@ -55,18 +55,20 @@ class GaSshoo():
         # 音楽.
         
         all = pygame.sprite.RenderUpdates()    
+        players = pygame.sprite.Group()
         enemys = pygame.sprite.Group()
         shots = pygame.sprite.Group()
         beams = pygame.sprite.Group()
         lastenemy = pygame.sprite.GroupSingle()
         
         GameManager.screen = screen
+        GameManager.playerGroup = players
         GameManager.enemyGroup = enemys
         GameManager.shotGroup = shots
         GameManager.beamGroup = beams
         GameManager.all = all
         
-        Player.containers = all
+        Player.containers = players, all
         Enemy.containers = enemys, all, lastenemy
         Shot.containers = shots, all
         Beam.containers = beams, all

@@ -34,6 +34,7 @@ class Enemy(pygame.sprite.Sprite):
             self.kill()
 class Beam(pygame.sprite.Sprite):
     speed = 6
+    power = 1
     def __init__(self, pos):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.rect = self.image.get_rect(midbottom=pos)

@@ -6,6 +6,7 @@ from Util.loader import *
 class Player(pygame.sprite.Sprite):
     speed = 2
     reload_time = 20
+    hp = 2
     NAME = "初号機"
     RANK = "ノーマル"
     BRIEF = ["適当にペイントで作成した初号機", "何の変哲もない。", "最近太ってしまったせいか、動くのがとても遅い"]
@@ -13,8 +14,8 @@ class Player(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self, self.containers)
         # self.rect = self.image.get_rect(midbottom=pos)
         self.rect = self.image.get_rect()
-        self.rect.center = self.pos
-        self.reload_timer = 0
+        self.reset()
+
     def execEvent(self, pressed_keys):
         self.move(pressed_keys)
         
@@ -36,8 +37,13 @@ class Player(pygame.sprite.Sprite):
         Shot((self.rect.centerx, self.rect.top))
     def reset(self):
         self.rect.center = self.pos
-
-
+        self.reload_timer = 0
+        self.hp = 2
+    def damage(self, point):
+        self.hp -= point
+        if self.hp <= 0:
+            return True
+        return False
 class Shot(pygame.sprite.Sprite):
     speed = -11
     power = 2

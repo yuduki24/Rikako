@@ -20,16 +20,14 @@ class GameManager():
             self.stage = Stage1()
     def collisionDetection(self):
         enemy_collided = pygame.sprite.groupcollide(self.enemyGroup, self.shotGroup, False, True)
-        print(enemy_collided)
         for enemy, shot in enemy_collided.items():
             enemy.damage(shot[0].power)
             # 爆発音.
             # 爆発エフェクトself.
-            pass
-        beam_collided = pygame.sprite.spritecollide(self.player, self.beamGroup, True)
-        if beam_collided:  # プレイヤーと衝突したビームがあれば
-            #self.player.kill()
-            self.state = GAMEOVER
+        player_collided = pygame.sprite.groupcollide(self.playerGroup, self.beamGroup, False, True)
+        for player, beam in player_collided.items():
+            if player.damage(beam[0].power):
+                self.state = GAMEOVER
     def reset(self):
         self.player.reset()
         for sprite in self.enemyGroup.sprites():
