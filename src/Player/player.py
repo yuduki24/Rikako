@@ -6,7 +6,7 @@ from Util.loader import *
 class Player(pygame.sprite.Sprite):
     speed = 2
     reload_time = 20
-    hp = 2
+    hp_max = 2
     NAME = "初号機"
     RANK = "ノーマル"
     BRIEF = ["適当にペイントで作成した初号機", "何の変哲もない。", "最近太ってしまったせいか、動くのがとても遅い"]
@@ -38,7 +38,7 @@ class Player(pygame.sprite.Sprite):
     def reset(self):
         self.rect.center = self.pos
         self.reload_timer = 0
-        self.hp = 2
+        self.hp = self.hp_max
     def damage(self, point):
         self.hp -= point
         if self.hp <= 0:

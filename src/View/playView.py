@@ -35,11 +35,17 @@ class PlayView(View):
         self.screen.fill(BLACK)
         if self.gameState == PLAY:
             # 残機とか体力とかスコアとか.
+            # プレイ時間.
             self.result = time.time() - self.stime
             result = int(self.result * 10)
-            timeText = getText(str(result/10), 20, WHITE)
-            self.screen.blit(timeText, (self.scr_rect.width - timeText.get_width() - 5, self.scr_rect.height - timeText.get_height() - 5))
-            pass
+            text = getText(str(result/10), 30, WHITE)
+            self.screen.blit(text, (self.scr_rect.width - text.get_width() - 5, self.scr_rect.height - text.get_height() - 5))
+            # 体力
+            
+            text = getText(str(self.player.hp), 30, WHITE)
+            self.screen.blit(text, (150, self.scr_rect.height - text.get_height() - 5))
+            pygame.draw.rect(self.screen, YELLOW, Rect(30, self.scr_rect.height - text.get_height() - 5, 100 * self.player.hp / self.player.hp_max, 30))
+            
         elif self.gameState == GAMECLEAR:
             titleText = getText("CLEAR", 75, YELLOW)
             self.screen.blit(titleText, (self.scr_rect.width//2 - titleText.get_width()//2, self.scr_rect.height//4))
