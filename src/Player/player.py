@@ -40,6 +40,7 @@ class Player(pygame.sprite.Sprite):
 
 class Shot(pygame.sprite.Sprite):
     speed = -11
+    power = 2
     def __init__(self, pos):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.rect = self.image.get_rect(midbottom=pos)

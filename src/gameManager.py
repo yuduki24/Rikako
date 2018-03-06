@@ -19,8 +19,10 @@ class GameManager():
         if self.stageNumber == 1:
             self.stage = Stage1()
     def collisionDetection(self):
-        enemy_collided = pygame.sprite.groupcollide(self.enemyGroup, self.shotGroup, True, True)
-        for enemy in enemy_collided.keys():
+        enemy_collided = pygame.sprite.groupcollide(self.enemyGroup, self.shotGroup, False, True)
+        print(enemy_collided)
+        for enemy, shot in enemy_collided.items():
+            enemy.damage(shot[0].power)
             # 爆発音.
             # 爆発エフェクトself.
             pass
