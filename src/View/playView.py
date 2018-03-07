@@ -23,9 +23,9 @@ class PlayView(View):
         self.draw()
         
         self.key_handler()
-        
-        self.gameState = self.gameManager.update()
-        if self.gameState == GAMEOVER:
+        if self.gameState == PLAY:
+            self.gameState = self.gameManager.update()
+        elif self.gameState == GAMEOVER:
             self.gameManager.reset()
             self.returnStatus = GameState.Gameover
         elif self.gameState == GAMECLEAR:
