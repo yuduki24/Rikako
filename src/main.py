@@ -5,7 +5,6 @@ import sys
 from Enemy.enemy import *
 
 from Player.player import *
-from Player.player1 import *
 
 from View.titleView import *
 from View.gachaView import *
@@ -45,18 +44,27 @@ class GaSshoo():
         Enemy.images = [image, pygame.transform.flip(image, 1, 0)]
         image = loadImage("enemy1.png", -1)
         Enemy1.images = [image, pygame.transform.flip(image, 1, 0)]
+
         image = loadImage("player.png", -1)
         Player.image = image
         image = loadImage("shot.png")
         Shot.image = image
+
         image = loadImage("player1.png", -1)
         Player1.image = image
         image = loadImage("shot1.png")
         Shot1.image = image
+
         image = loadImage("player2.png", -1)
         Player2.image = image
         image = loadImage("shot2.png")
         Shot2.image = image
+
+        image = loadImage("tofu.png")
+        Tofu.image = image
+        image = loadImage("tofu_shot.png")
+        TofuShot.image = image
+
         image = loadImage("beam.png")
         Beam.image = image
         # 音楽.

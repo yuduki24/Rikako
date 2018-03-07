@@ -3,6 +3,7 @@ from View.view import *
 from Player.player import *
 from Player.player1 import *
 from Player.player2 import *
+from Player.tofu import *
 
 import random
 
@@ -44,15 +45,37 @@ class GachaView(View):
                 if self.gachaState == BEFORE_GACHA:
                     self.gachaState = AFTER_GACHA
                 elif self.gachaState == AFTER_GACHA:
-                    self.gacha()
+                    if self.gachaKind == NORMAL_GACHA:
+                        self.gacha(95, 5, 0)
+                    elif self.gachaKind == ULTRA_GACHA:
+                        self.gacha(15, 80, 5)
                     self.returnStatus = GameState.Wait
-    def gacha(self):
+    def gacha(self, N, R, UR):
         # ガチャの種類によって変える.
-        num = 0
         gacha_num = random.randint(1,100)
-        if gacha_num>30:
-            self.player = Player()
-        elif gacha_num>60:
-            self.player = Player1()
+        if gacha_num < N:
+            self.normalGacha()
+        elif gacha_num < N+R:
+            self.rareGacha()
         else:
+            self.ultraGacha()
+    def normalGacha(self):
+        normal_count = 3
+        gacha_num = random.randint(1, normal_count)
+        if gacha_num == 1:
+            self.player = Player()
+        elif gacha_num == 2:
+            self.player = Player1()
+        elif gacha_num == 3:
             self.player = Player2()
+    def rareGacha(self):
+        rare_count = 1
+        gacha_num = random.randint(1, rare_count)
+        if gacha_num == 1:
+            self.player = Tofu()
+
+    def ultraGacha(self):
+        ultra_count = 1
+        gacha_num = random.randint(1, ultra_count)
+        if gacha_num == 1:
+            self.player = Tofu()
