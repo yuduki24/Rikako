@@ -29,7 +29,7 @@ class Player(pygame.sprite.Sprite):
         direction_y = pressed_keys[K_DOWN] - pressed_keys[K_UP]
         if (direction_x < 0 and self.rect.left < 30) or (direction_x > 0 and self.rect.right > self.scr_rect.right-30):
             direction_x = 0
-        if (direction_y < 0 and self.rect.top < self.scr_rect.height*3//4) or (direction_y > 0 and self.rect.bottom > self.scr_rect.bottom-30):
+        if (direction_y < 0 and self.rect.top < self.scr_rect.height*3//4) or (direction_y > 0 and self.rect.bottom > self.scr_rect.bottom-50):
             direction_y = 0
         self.rect.move_ip(direction_x*self.speed, direction_y*self.speed)
         # self.rect.clamp_ip(self.scr_rect)

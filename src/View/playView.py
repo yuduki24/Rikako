@@ -80,6 +80,7 @@ class PlayView(View):
                     self.chooing_buton = END_BUTTON
                 if event.type == KEYDOWN and event.key == K_RETURN:
                     if self.chooing_buton == NEXT_BUTTON:
-                        self.returnStatus = GameState.Title
+                        self.returnStatus = GameState.Pass
+                        self.gameState = PLAY
                     elif self.chooing_buton == END_BUTTON:
                         self.returnStatus = GameState.Title

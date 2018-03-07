@@ -1,4 +1,5 @@
 from Enemy.enemy import *
+from Enemy.enemy1 import *
 
 class Stage():
     def __init__(self):

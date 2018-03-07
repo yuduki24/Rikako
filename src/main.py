@@ -26,8 +26,9 @@ class GaSshoo():
         pygame.display.set_caption(u"uwaaaaaa")
         View.scr_rect = SCR_RECT
         View.screen = screen
-        Player.pos = (SCR_RECT.width//2, SCR_RECT.height-50)
+        Player.pos = (SCR_RECT.width//2, SCR_RECT.height-80)
         Player.scr_rect = SCR_RECT
+        Enemy.scr_rect = SCR_RECT
         Beam.scr_rect = SCR_RECT
         
         # 画像.
@@ -42,6 +43,8 @@ class GaSshoo():
         
         image = loadImage("enemy.png", -1)
         Enemy.images = [image, pygame.transform.flip(image, 1, 0)]
+        image = loadImage("enemy1.png", -1)
+        Enemy1.images = [image, pygame.transform.flip(image, 1, 0)]
         image = loadImage("player.png", -1)
         Player.image = image
         image = loadImage("shot.png")
