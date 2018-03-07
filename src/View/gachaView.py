@@ -4,6 +4,7 @@ from Player.player import *
 from Player.player1 import *
 from Player.player2 import *
 from Player.tofu import *
+from Player.onigiri import *
 
 import random
 
@@ -69,10 +70,12 @@ class GachaView(View):
         elif gacha_num == 3:
             self.player = Player2()
     def rareGacha(self):
-        rare_count = 1
+        rare_count = 2
         gacha_num = random.randint(1, rare_count)
         if gacha_num == 1:
             self.player = Tofu()
+        elif gacha_num == 2:
+            self.player = Onigiri()
 
     def ultraGacha(self):
         ultra_count = 1

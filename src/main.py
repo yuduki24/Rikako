@@ -65,6 +65,11 @@ class GaSshoo():
         image = loadImage("tofu_shot.png")
         TofuShot.image = image
 
+        image = loadImage("onigiri.png", -1)
+        Onigiri.image = image
+        image = loadImage("sio.png")
+        Sio.image = image
+
         image = loadImage("beam.png")
         Beam.image = image
         # 音楽.
