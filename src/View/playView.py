@@ -26,10 +26,7 @@ class PlayView(View):
         if self.gameState == PLAY:
             self.gameState = self.gameManager.update()
         elif self.gameState == GAMEOVER:
-            self.gameManager.reset()
             self.returnStatus = GameState.Gameover
-        elif self.gameState == GAMECLEAR:
-            self.gameManager.reset()
         return self.returnStatus
     def draw(self):
         self.screen.fill(BLACK)
@@ -81,6 +78,9 @@ class PlayView(View):
                 if event.type == KEYDOWN and event.key == K_RETURN:
                     if self.chooing_buton == NEXT_BUTTON:
                         self.returnStatus = GameState.Pass
+                        self.gameManager.stageNumber = 2
+                        self.gameManager.createStage()
                         self.gameState = PLAY
                     elif self.chooing_buton == END_BUTTON:
+                        self.player.kill()
                         self.returnStatus = GameState.Title

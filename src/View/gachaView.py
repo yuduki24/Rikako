@@ -2,6 +2,7 @@ from View.view import *
 
 from Player.player import *
 from Player.player1 import *
+from Player.player2 import *
 
 import random
 
@@ -48,11 +49,10 @@ class GachaView(View):
     def gacha(self):
         # ガチャの種類によって変える.
         num = 0
-        if random.randint(1,100) > 50:
-            num = 1
-        self.createPlayer(num)
-    def createPlayer(self, id):
-        if id == 0:
+        gacha_num = random.randint(1,100)
+        if gacha_num>30:
             self.player = Player()
-        elif id == 1:
+        elif gacha_num>60:
             self.player = Player1()
+        else:
+            self.player = Player2()

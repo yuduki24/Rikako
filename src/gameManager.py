@@ -13,6 +13,7 @@ class GameManager():
         self.all.draw(self.screen)
         self.collisionDetection()
         if len(self.enemyGroup.sprites()) == 0:
+            self.reset()
             self.state = GAMECLEAR
         return self.state
     def createStage(self):
@@ -30,6 +31,7 @@ class GameManager():
         player_collided = pygame.sprite.groupcollide(self.playerGroup, self.beamGroup, False, True)
         for player, beam in player_collided.items():
             if player.damage(beam[0].power):
+                self.reset()
                 self.state = GAMEOVER
     def reset(self):
         self.player.reset()
@@ -43,6 +45,3 @@ class GameManager():
         # self.shotGroup.empty()
         # self.beamGroup.empty()
         self.all.update()
-        self.stageNumber = 2
-        self.createStage()
-        pass

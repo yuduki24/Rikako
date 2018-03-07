@@ -53,6 +53,10 @@ class GaSshoo():
         Player1.image = image
         image = loadImage("shot1.png")
         Shot1.image = image
+        image = loadImage("player2.png", -1)
+        Player2.image = image
+        image = loadImage("shot2.png")
+        Shot2.image = image
         image = loadImage("beam.png")
         Beam.image = image
         # 音楽.
