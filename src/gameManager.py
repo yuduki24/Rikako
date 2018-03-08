@@ -1,5 +1,6 @@
 from Stage.stage1 import *
 from Stage.stage2 import *
+from Stage.stage3 import *
 
 PLAY, GAMEOVER, GAMECLEAR = (0, 1, 2)
 
@@ -11,16 +12,20 @@ class GameManager():
     def update(self):
         self.all.update()
         self.all.draw(self.screen)
-        self.collisionDetection()
         if len(self.enemyGroup.sprites()) == 0:
             self.reset()
             self.state = GAMECLEAR
+        self.collisionDetection()
         return self.state
     def createStage(self):
         if self.stageNumber == 1:
             self.stage = Stage1()
-        if self.stageNumber == 2:
+        elif self.stageNumber == 2:
             self.stage = Stage2()
+        elif self.stageNumber == 3:
+            self.stage = Stage3()
+        else:
+            self.stage = Stage()
         self.state = PLAY
     def collisionDetection(self):
         enemy_collided = pygame.sprite.groupcollide(self.enemyGroup, self.shotGroup, False, True)

@@ -78,7 +78,7 @@ class PlayView(View):
                 if event.type == KEYDOWN and event.key == K_RETURN:
                     if self.chooing_buton == NEXT_BUTTON:
                         self.returnStatus = GameState.Pass
-                        self.gameManager.stageNumber = 2
+                        self.gameManager.stageNumber += 1
                         self.gameManager.createStage()
                         self.gameState = PLAY
                     elif self.chooing_buton == END_BUTTON:

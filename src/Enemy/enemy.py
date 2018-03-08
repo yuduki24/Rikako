@@ -46,3 +46,7 @@ class Beam(pygame.sprite.Sprite):
 class Beam1(Beam):
     speed = 8
     power = 2
+
+class Beam2(Beam):
+    speed = 8
+    power = 4

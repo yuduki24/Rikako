@@ -24,6 +24,7 @@ class GaSshoo():
         screen = pygame.display.set_mode(SCR_RECT.size)
         pygame.display.set_caption(u"uwaaaaaa")
         View.scr_rect = SCR_RECT
+        Stage.scr_rect = SCR_RECT
         View.screen = screen
         Player.pos = (SCR_RECT.width//2, SCR_RECT.height-80)
         Player.scr_rect = SCR_RECT
@@ -44,6 +45,9 @@ class GaSshoo():
         Enemy.images = [image, pygame.transform.flip(image, 1, 0)]
         image = loadImage("enemy1.png", -1)
         Enemy1.images = [image, pygame.transform.flip(image, 1, 0)]
+        image = loadImage("boss1.png", -1)
+        image = pygame.transform.scale(image, (64, 64))
+        Boss1.images = [image, pygame.transform.flip(image, 1, 0)]
 
         image = loadImage("player.png", -1)
         Player.image = image
@@ -88,6 +92,9 @@ class GaSshoo():
 
         image = loadImage("beam.png")
         Beam.image = image
+
+        image = loadImage("boss1_shot.png")
+        Beam2.image = image
         # 音楽.
         
         all = pygame.sprite.RenderUpdates()    

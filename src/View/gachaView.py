@@ -75,8 +75,8 @@ class GachaView(View):
             self.player = Player2()
     def rareGacha(self):
         rare_count = 5
-        #gacha_num = random.randint(1, rare_count)
-        gacha_num = 5
+        gacha_num = random.randint(1, rare_count)
+        #gacha_num = 5
         if gacha_num == 1:
             self.player = Tofu()
         elif gacha_num == 2:
