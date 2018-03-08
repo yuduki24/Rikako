@@ -11,8 +11,8 @@ class WaitView(View):
 
         text = getText(player.RANK, 40, YELLOW)
         self.screen.blit(text, (10, 20))
-        text = getText(player.NAME, 40, YELLOW)
-        self.screen.blit(text, (80, 300))
+        text = getText(player.NAME, 30, YELLOW)
+        self.screen.blit(text, (20, 300))
         for i in range(len(player.BRIEF)):
             text = getText(player.BRIEF[i], 20, WHITE)
             self.screen.blit(text, (250, 100 + i*40))

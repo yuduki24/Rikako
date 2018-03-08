@@ -23,7 +23,7 @@ def loadImage(file, colorkey=None):
 def loadImages(*files):
     imgs = []
     for file in files:
-        imgs.append(load_image(file))
+        imgs.append(loadImage(file))
     return imgs
 
 def loadSound(file):
@@ -41,17 +41,17 @@ def loadFont(file, size):
     file = os.path.join(parent_dir, 'font', file)
     return pygame.font.Font(file, size)
 
-# def split_image(image, n):
-#     """横に長いイメージを同じ大きさのn枚のイメージに分割
-#     分割したイメージを格納したリストを返す"""
-#     image_list = []
-#     w = image.get_width()
-#     h = image.get_height()
-#     w1 = int(w / n)
-#     for i in range(0, w, w1):
-#         surface = pygame.Surface((w1,h))
-#         surface.blit(image, (0,0), (i,0,w1,h))
-#         surface.set_colorkey(surface.get_at((0,0)), RLEACCEL)
-#         surface.convert()
-#         image_list.append(surface)
-#     return image_list
+def splitImage(image, n):
+    """横に長いイメージを同じ大きさのn枚のイメージに分割
+    分割したイメージを格納したリストを返す"""
+    image_list = []
+    w = image.get_width()
+    h = image.get_height()
+    w1 = int(w / n)
+    for i in range(0, w, w1):
+        surface = pygame.Surface((w1,h))
+        surface.blit(image, (0,0), (i,0,w1,h))
+        surface.set_colorkey(surface.get_at((0,0)), RLEACCEL)
+        surface.convert()
+        image_list.append(surface)
+    return image_list

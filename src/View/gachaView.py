@@ -5,6 +5,9 @@ from Player.player1 import *
 from Player.player2 import *
 from Player.tofu import *
 from Player.onigiri import *
+from Player.iTunesCard import *
+from Player.ika import *
+from Player.kakun import *
 
 import random
 
@@ -49,7 +52,8 @@ class GachaView(View):
                     if self.gachaKind == NORMAL_GACHA:
                         self.gacha(95, 5, 0)
                     elif self.gachaKind == ULTRA_GACHA:
-                        self.gacha(15, 80, 5)
+                        #self.gacha(15, 80, 5)
+                        self.gacha(0, 100, 0)
                     self.returnStatus = GameState.Wait
     def gacha(self, N, R, UR):
         # ガチャの種類によって変える.
@@ -70,12 +74,19 @@ class GachaView(View):
         elif gacha_num == 3:
             self.player = Player2()
     def rareGacha(self):
-        rare_count = 2
-        gacha_num = random.randint(1, rare_count)
+        rare_count = 5
+        #gacha_num = random.randint(1, rare_count)
+        gacha_num = 5
         if gacha_num == 1:
             self.player = Tofu()
         elif gacha_num == 2:
             self.player = Onigiri()
+        elif gacha_num == 3:
+            self.player = iTunesCard()
+        elif gacha_num == 4:
+            self.player = Ika()
+        elif gacha_num == 5:
+            self.player = Kakun()
 
     def ultraGacha(self):
         ultra_count = 1

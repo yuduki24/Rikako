@@ -38,6 +38,3 @@ class Enemy1(Enemy):
         self.hp -= point
         if self.hp <= 0:
             self.kill()
-class Beam1(Beam):
-    speed = 8
-    power = 2

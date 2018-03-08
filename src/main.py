@@ -70,6 +70,22 @@ class GaSshoo():
         image = loadImage("sio.png")
         Sio.image = image
 
+        image = loadImage("itunes_card.png")
+        iTunesCard.image = image
+        images = loadImages("1yen.png", "5yen.png", "100yen.png", "1000yen.png", "10000yen.png"
+)
+        Money.images = images
+
+        image = loadImage("ika.png", -1)
+        Ika.image = image
+        image = loadImage("sumi.png")
+        Ikasumi.image = image
+
+        image = loadImage("ka-kun.png", -1)
+        Kakun.image = image
+        images = splitImage(loadImage("puyo.png", -1), 5)
+        Puyo.images = images
+
         image = loadImage("beam.png")
         Beam.image = image
         # 音楽.

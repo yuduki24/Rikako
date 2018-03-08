@@ -42,3 +42,7 @@ class Beam(pygame.sprite.Sprite):
         self.rect.move_ip(0, self.speed)
         if self.rect.top > self.scr_rect.height:
             self.kill()
+
+class Beam1(Beam):
+    speed = 8
+    power = 2
