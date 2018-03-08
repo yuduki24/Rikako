@@ -12,7 +12,7 @@ class Enemy1(Enemy):
     animcycle = 18  #アニメーション速度
     frame = 0
     move_width = 230  # 横方向の移動範囲
-    prob_beam = 0.003  # ビームを発射する確率
+    prob_beam = 0.01  # ビームを発射する確率
     hp = 2
     def __init__(self, pos):
         pygame.sprite.Sprite.__init__(self, self.containers)

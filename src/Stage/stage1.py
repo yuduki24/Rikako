@@ -2,7 +2,11 @@ from Stage.stage import *
 
 class Stage1(Stage):
     def deployEnemy(self):
-        for i in range(0, 2):
-            x = 200 + int(i % 5) * 40
-            y = 200 + int(i / 5) * 40
-            enemy = Enemy((x, y))
+        jodan = 100
+        gedan = 200
+        center = self.scr_rect.width//2
+        Enemy((center, gedan))
+        Enemy((center+25, jodan))
+        Enemy((center+50, gedan))
+        Enemy((center-25, jodan))
+        Enemy((center-50, gedan))

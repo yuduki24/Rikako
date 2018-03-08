@@ -9,7 +9,7 @@ class TitleView(View):
         self.screen.fill(GRAY)
         self.chooing_buton = START_BUTTON
         # ゲームタイトル.
-        titleText = getText("がちゃばん", 60, YELLOW)
+        titleText = getText("BAN BANG", 100, RED)
         self.screen.blit(titleText, (self.scr_rect.width//2 - titleText.get_width()//2, self.scr_rect.height//4))
         self.updateButtonView()
 

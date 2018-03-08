@@ -46,7 +46,7 @@ class GaSshoo():
         image = loadImage("enemy1.png", -1)
         Enemy1.images = [image, pygame.transform.flip(image, 1, 0)]
         image = loadImage("boss1.png", -1)
-        image = pygame.transform.scale(image, (64, 64))
+        image = pygame.transform.scale(image, (96, 96))
         Boss1.images = [image, pygame.transform.flip(image, 1, 0)]
 
         image = loadImage("player.png", -1)

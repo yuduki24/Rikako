@@ -34,8 +34,8 @@ class PlayView(View):
             # 残機とか体力とかスコアとか.
             # プレイ時間.
             self.result = time.time() - self.stime
-            result = int(self.result * 10)
-            text = getText(str(result/10), 30, WHITE)
+            result = int(self.result * 100)
+            text = getText("{:.2f}".format(result/100), 30, WHITE)
             self.screen.blit(text, (self.scr_rect.width - text.get_width() - 5, self.scr_rect.height - text.get_height() - 5))
             # 体力
             
@@ -70,7 +70,11 @@ class PlayView(View):
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
-            if self.gameState == GAMECLEAR:
+            if self.gameState == PLAY:
+                if event.type == KEYDOWN and event.key == K_q:
+                    self.gameManager.reset()
+                    self.gameState = GAMEOVER
+            elif self.gameState == GAMECLEAR:
                 if event.type == KEYDOWN and event.key == K_UP:
                     self.chooing_buton = NEXT_BUTTON
                 if event.type == KEYDOWN and event.key == K_DOWN:

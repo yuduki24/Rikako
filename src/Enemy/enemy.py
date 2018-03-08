@@ -9,15 +9,15 @@ class Enemy(pygame.sprite.Sprite):
     speed = 2       #移動速度.
     animcycle = 18  #アニメーション速度
     frame = 0
-    move_width = 230  # 横方向の移動範囲
+    move_width = 400  # 横方向の移動範囲
     prob_beam = 0.003  # ビームを発射する確率
     hp = 2
     def __init__(self, pos):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
         self.rect = self.image.get_rect(midbottom=pos)
-        self.left = pos[0]
-        self.right = self.left + self.move_width
+        self.left = pos[0] - self.move_width // 2
+        self.right = self.left + self.move_width // 2
     def update(self):
         self.rect.move_ip(self.speed, 0)
         if self.rect.center[0] < self.left or self.rect.center[0] > self.right:
