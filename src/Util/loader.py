@@ -53,5 +53,6 @@ def splitImage(image, n):
         surface.blit(image, (0,0), (i,0,w1,h))
         surface.set_colorkey(surface.get_at((0,0)), RLEACCEL)
         surface.convert()
+        surface = pygame.transform.scale(surface, (16, 16))
         image_list.append(surface)
     return image_list

@@ -54,6 +54,18 @@ class GaSshoo():
         image = loadImage("shot.png")
         Shot.image = image
 
+        image = loadImage("sushi.png", -1)
+        Sushi.images = [image, pygame.transform.flip(image, 1, 0)]
+        images = loadImages("neta_ebi.png", "neta_ika.png", "neta_maguro.png", "neta_negitoro.png", "neta_tamago.png")
+        SushiNeta.images = images
+
+        image = loadImage("cheetah.png", -1)
+        image = pygame.transform.scale(image, (64, 64))
+        CheetahMan.images = [image, pygame.transform.flip(image, 1, 0)]
+        image = loadImage("silver_bullet.png")
+        image = pygame.transform.scale(image, (32, 32))
+        SilverBullet.image = image
+        
         image = loadImage("player1.png", -1)
         Player1.image = image
         image = loadImage("shot1.png")
@@ -74,10 +86,19 @@ class GaSshoo():
         image = loadImage("sio.png")
         Sio.image = image
 
+        image = loadImage("pikachu.png", -1)
+        Pikachu.image = image
+        image = loadImage("kaminari.png")
+        Kaminari.image = image
+
+        image = loadImage("homuhomu.png", -1)
+        Homuhomu.image = image
+        image = loadImage("ya.png")
+        Arrow.image = image
+
         image = loadImage("itunes_card.png")
         iTunesCard.image = image
-        images = loadImages("1yen.png", "5yen.png", "100yen.png", "1000yen.png", "10000yen.png"
-)
+        images = loadImages("1yen.png", "5yen.png", "100yen.png", "1000yen.png", "10000yen.png")
         Money.images = images
 
         image = loadImage("ika.png", -1)
