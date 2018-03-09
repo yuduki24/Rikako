@@ -1,8 +1,6 @@
 import pygame
 from pygame.locals import *
 
-from Util.loader import *
-
 import random
 
 class Enemy(pygame.sprite.Sprite):
@@ -33,7 +31,7 @@ class Enemy(pygame.sprite.Sprite):
         if self.hp <= 0:
             self.kill()
 class Beam(pygame.sprite.Sprite):
-    speed = 6
+    speed = 4
     power = 1
     def __init__(self, pos):
         pygame.sprite.Sprite.__init__(self, self.containers)

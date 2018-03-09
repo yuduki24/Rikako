@@ -48,6 +48,10 @@ class GaSshoo():
         image = loadImage("boss1.png", -1)
         image = pygame.transform.scale(image, (96, 96))
         Boss1.images = [image, pygame.transform.flip(image, 1, 0)]
+        image = loadImage("sweets_pokki_game_couple.png", -1)
+        Boss2.image = image
+        image = loadImage("boss3.png", -1)
+        Boss3.image = image
 
         image = loadImage("player.png", -1)
         Player.image = image

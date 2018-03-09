@@ -1,7 +1,8 @@
 from Stage.stage1 import *
 from Stage.stage2 import *
 from Stage.stage3 import *
-
+from Stage.stage4 import *
+from Stage.stage5 import *
 PLAY, GAMEOVER, GAMECLEAR = (0, 1, 2)
 
 class GameManager():
@@ -24,6 +25,10 @@ class GameManager():
             self.stage = Stage2()
         elif self.stageNumber == 3:
             self.stage = Stage3()
+        elif self.stageNumber == 4:
+            self.stage = Stage4()
+        elif self.stageNumber == 5:
+            self.stage = Stage5()
         else:
             self.stage = Stage()
         self.state = PLAY

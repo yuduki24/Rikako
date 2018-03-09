@@ -3,8 +3,6 @@ from pygame.locals import *
 
 from Enemy.enemy import *
 
-from Util.loader import *
-
 import random
 
 class Enemy1(Enemy):
@@ -12,7 +10,7 @@ class Enemy1(Enemy):
     animcycle = 18  #アニメーション速度
     frame = 0
     move_width = 230  # 横方向の移動範囲
-    prob_beam = 0.01  # ビームを発射する確率
+    prob_beam = 0.005  # ビームを発射する確率
     hp = 2
     def __init__(self, pos):
         pygame.sprite.Sprite.__init__(self, self.containers)
@@ -34,7 +32,3 @@ class Enemy1(Enemy):
         # ビームを発射
         if random.random() < self.prob_beam:
             Beam(self.rect.center)
-    def damage(self, point):
-        self.hp -= point
-        if self.hp <= 0:
-            self.kill()

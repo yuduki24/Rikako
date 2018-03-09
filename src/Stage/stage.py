@@ -1,6 +1,8 @@
 from Enemy.enemy import *
 from Enemy.enemy1 import *
 from Enemy.boss1 import *
+from Enemy.boss2 import *
+from Enemy.boss3 import *
 
 class Stage():
     def __init__(self):

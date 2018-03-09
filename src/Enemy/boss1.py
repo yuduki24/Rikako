@@ -3,8 +3,6 @@ from pygame.locals import *
 
 from Enemy.enemy import *
 
-from Util.loader import *
-
 import random
 
 class Boss1(Enemy):
@@ -34,7 +32,3 @@ class Boss1(Enemy):
         # ビームを発射
         if random.random() < self.prob_beam:
             Beam2(self.rect.center)
-    def damage(self, point):
-        self.hp -= point
-        if self.hp <= 0:
-            self.kill()
