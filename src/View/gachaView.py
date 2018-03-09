@@ -24,14 +24,16 @@ class GachaView(View):
         self.screen.blit(self.normal1, (0, 0))
         self.gachaState = BEFORE_GACHA
         self.gachaKind  = NORMAL_GACHA
+        self.ultra_flag = False
     def draw(self):
         text = None
         if self.gachaState == BEFORE_GACHA:
             if self.gachaKind == NORMAL_GACHA:
                 image = self.normal1
+                text = getText("[確率]ノーマル(3)：95%, レア(8)： 5%, ウルトラレア(1)： 0%", 20, BLACK)
             elif self.gachaKind == ULTRA_GACHA:
                 image = self.ultra1
-            text = getText("ガチャる\n(please Enter)", 20, BLACK)
+                text = getText("[確率]ノーマル(3)：10%, レア(8)：87%, ウルトラレア(1)： 3%", 20, BLACK)
         elif self.gachaState == AFTER_GACHA:
             if self.gachaKind == NORMAL_GACHA:
                 image = self.normal2
@@ -39,16 +41,18 @@ class GachaView(View):
                 image = self.ultra2
         self.screen.blit(image, (0, 0))
         if text:
-            self.screen.blit(text, (self.scr_rect.width//2 - text.get_width()//2, self.scr_rect.height-50))
+            self.screen.blit(text, (self.scr_rect.width//2 - text.get_width()//2 - 100, self.scr_rect.height-30))
     def key_handler(self):
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
+            if event.type == KEYDOWN and event.key == K_u:
+                self.ultra_flag = True
             if event.type == KEYDOWN and event.key == K_LEFT:
-                self.gachaKind  = NORMAL_GACHA
+                self.gachaKind = NORMAL_GACHA
             if event.type == KEYDOWN and event.key == K_RIGHT:
-                self.gachaKind  = ULTRA_GACHA
+                self.gachaKind = ULTRA_GACHA
             if event.type == KEYDOWN and event.key == K_RETURN:
                 if self.gachaState == BEFORE_GACHA:
                     self.gachaState = AFTER_GACHA
@@ -56,8 +60,10 @@ class GachaView(View):
                     if self.gachaKind == NORMAL_GACHA:
                         self.gacha(95, 5, 0)
                     elif self.gachaKind == ULTRA_GACHA:
-                        #self.gacha(15, 80, 5)
-                        self.gacha(0, 97, 3)
+                        if self.ultra_flag:
+                            self.gacha(0, 0, 3)
+                        else:
+                            self.gacha(10, 87, 3)
                     self.returnStatus = GameState.Wait
     def gacha(self, N, R, UR):
         # ガチャの種類によって変える.

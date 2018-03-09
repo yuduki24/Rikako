@@ -22,7 +22,7 @@ class GaSshoo():
     def __init__(self):
         pygame.init()
         screen = pygame.display.set_mode(SCR_RECT.size)
-        pygame.display.set_caption(u"uwaaaaaa")
+        pygame.display.set_caption(u"BAN BANG")
         View.scr_rect = SCR_RECT
         Stage.scr_rect = SCR_RECT
         View.screen = screen
