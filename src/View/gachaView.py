@@ -12,6 +12,7 @@ from Player.pikachu import *
 from Player.homuhomu import *
 from Player.sushi import *
 from Player.cheetah_man import *
+from Player.yoshiko import *
 
 import random
 
@@ -30,10 +31,10 @@ class GachaView(View):
         if self.gachaState == BEFORE_GACHA:
             if self.gachaKind == NORMAL_GACHA:
                 image = self.normal1
-                text = getText("[確率]ノーマル(3)：95%, レア(8)： 5%, ウルトラレア(1)： 0%", 20, BLACK)
+                text = getText("[確率]ノーマル(3)：89%, レア(8)：10%, ウルトラレア(2)： 1%", 20, BLACK)
             elif self.gachaKind == ULTRA_GACHA:
                 image = self.ultra1
-                text = getText("[確率]ノーマル(3)：10%, レア(8)：87%, ウルトラレア(1)： 3%", 20, BLACK)
+                text = getText("[確率]ノーマル(3)：10%, レア(8)：85%, ウルトラレア(2)： 5%", 20, BLACK)
         elif self.gachaState == AFTER_GACHA:
             if self.gachaKind == NORMAL_GACHA:
                 image = self.normal2
@@ -58,12 +59,12 @@ class GachaView(View):
                     self.gachaState = AFTER_GACHA
                 elif self.gachaState == AFTER_GACHA:
                     if self.gachaKind == NORMAL_GACHA:
-                        self.gacha(95, 5, 0)
+                        self.gacha(89, 10, 1)
                     elif self.gachaKind == ULTRA_GACHA:
                         if self.ultra_flag:
-                            self.gacha(0, 0, 3)
+                            self.gacha(0, 0, 100)
                         else:
-                            self.gacha(10, 87, 3)
+                            self.gacha(10, 85, 5)
                     self.returnStatus = GameState.Wait
     def gacha(self, N, R, UR):
         # ガチャの種類によって変える.
@@ -105,7 +106,9 @@ class GachaView(View):
             self.player = Sushi()
 
     def ultraGacha(self):
-        ultra_count = 1
+        ultra_count = 2
         gacha_num = random.randint(1, ultra_count)
         if gacha_num == 1:
             self.player = CheetahMan()
+        elif gacha_num == 2:
+            self.player = Yoshiko()

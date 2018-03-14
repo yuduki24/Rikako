@@ -80,6 +80,12 @@ class GaSshoo():
         image = loadImage("shot2.png")
         Shot2.image = image
 
+        image = loadImage("yoshiko.png", -1)
+        Yoshiko.image = image
+        image = pygame.transform.scale(image, (16, 16))
+        image = loadImage("loveka_stone.png", -1)
+        LovekaStone.image = image
+
         image = loadImage("tofu.png")
         Tofu.image = image
         image = loadImage("tofu_shot.png")
@@ -100,7 +106,7 @@ class GaSshoo():
         image = loadImage("ya.png")
         Arrow.image = image
 
-        image = loadImage("itunes_card.png")
+        image = loadImage("itunes_card.png", -1)
         iTunesCard.image = image
         images = loadImages("1yen.png", "5yen.png", "100yen.png", "1000yen.png", "10000yen.png")
         Money.images = images

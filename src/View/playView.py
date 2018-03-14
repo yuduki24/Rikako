@@ -29,7 +29,7 @@ class PlayView(View):
             self.returnStatus = GameState.Gameover
         return self.returnStatus
     def draw(self):
-        self.screen.fill(BLACK)
+        self.screen.fill(PLAY_COLOR)
         if self.gameState == PLAY:
             # 残機とか体力とかスコアとか.
             # プレイ時間.

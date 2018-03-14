@@ -3,8 +3,6 @@ from pygame.locals import *
 
 from Player.player import *
 
-from Util.loader import *
-
 class Player2(Player):
     reload_time = 40
     speed = 5
